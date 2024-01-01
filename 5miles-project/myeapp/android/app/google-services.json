@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "202559860014",
+    "project_id": "e-commarce-app-final",
+    "storage_bucket": "e-commarce-app-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202559860014:android:cee7f7bf21695696df1ebf",
+        "android_client_info": {
+          "package_name": "com.example.myeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX0qxuyOrXMxOjcLmyr2ZXgHU_C7yhbfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
