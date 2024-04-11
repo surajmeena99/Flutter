@@ -1,11 +1,15 @@
 1. App Icon Generator: IconKitchen
    https://icon.kitchen/i/H4sIAAAAAAAAA6tWKkvMKU0tVrKqVkpJLMoOyUjNTVWySkvMKU6t1VHKzU8pzQHJRisl5qUU5WemKOkoZeYXA8ny1CSl2FoApT8%2BHkAAAAA%3D
 
+1.1 Feature Graphic Image: Hotpot.ai
+    https://hotpot.ai/templates/google-play-feature-graphic
+
 2. App Screenshot: flyCricket
    https://app.flycricket.com/screenshots/edit/2dd31ad7-6bfe-4070-a411-10170ff96c84
 
 3. Privacy Policy and Term and Conditions: https://sites.google.com/view/surajriders/home
    https://app-privacy-policy-generator.firebaseapp.com/
+   https://www.freeprivacypolicy.com/
 
 4. Signing Certificate Command: S:\Flutter Apps\firebase_app\android> ./gradlew signingReport
    SHA1:
