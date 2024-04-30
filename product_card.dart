@@ -36,7 +36,7 @@ class ProductCard extends StatelessWidget {
                         style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Text('\₹${productPrice.toString()}'),
-                      const SizedBox(height: 13),
+                      const SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: () {},
                         child: const Text("More Details"),
@@ -49,19 +49,19 @@ class ProductCard extends StatelessWidget {
                       Positioned(
                         child: Container(
                           height: 100,
-                          width: 140,
+                          width: 130,
                           decoration: BoxDecoration(
                             border: Border.all(width: 1),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Image.asset(productImage,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                          left: 15,
+                          left: 10,
                           top: 80,
                         ),
                         child: addToCart,
@@ -76,6 +76,7 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
+
 
 // import 'package:flutter/material.dart';
 //
