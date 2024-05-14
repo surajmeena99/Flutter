@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class PDFScreen extends StatefulWidget {
   final String url;
@@ -14,32 +15,42 @@ class PDFScreen extends StatefulWidget {
 }
 
 class _PDFScreenState extends State<PDFScreen> {
-  late bool _isLoading;
-  late String? _pdfPath;
+  String? pdfPath;
 
-  @override
+   @override
   void initState() {
     super.initState();
-    _isLoading = true;
-    _downloadAndDisplayPDF();
+    requestPermissions();
+    downloadPdf();
   }
-
-  Future<void> _downloadAndDisplayPDF() async {
+  
+  Future<void> requestPermissions() async {
+    if (Platform.isAndroid) {
+      var status = await Permission.storage.status;
+      if (!status.isGranted) {
+        await Permission.storage.request();
+      }
+    }
+  }
+  
+  Future<void> downloadPdf() async {
     try {
-      var response = await http.get(Uri.parse(widget.url));
-      var dir = await getApplicationDocumentsDirectory();
-      File file = File('${dir.path}/example.pdf');
+      final response = await http.get(Uri.parse(widget.url));
+
+    final directory = await getExternalStorageDirectory();
+    if (directory != null) {
+      final filePath = '${directory.path}/sample.pdf';
+      final File file = File(filePath);
+
       await file.writeAsBytes(response.bodyBytes);
+
       setState(() {
-        _pdfPath = file.path;
-        _isLoading = false;
+        pdfPath = filePath;
       });
+    }
     } on HandshakeException {
       _showCertificateErrorDialog();
     } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
       print('Error downloading PDF: $e');
     }
   }
@@ -84,17 +95,13 @@ class _PDFScreenState extends State<PDFScreen> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10), 
-                child: _isLoading
-                    ? const Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    : _pdfPath != null
-                        ? PDFView(
-                            filePath: _pdfPath!,
-                          )
-                        : const Center(
-                            child: Text('Error loading PDF'),
-                          ),
+                child: pdfPath == null
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : PDFView(
+                          filePath: pdfPath,
+                        ),
               ),
             ),
             const SizedBox(height: 30),
