@@ -79,3 +79,4 @@
 
            runApp(const MyApp());
          }
+9. Json to Darr (for Create Model Class): ->  https://javiercbk.github.io/json_to_dart/
