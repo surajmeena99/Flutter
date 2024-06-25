@@ -1,12 +1,10 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesKeys{
-   static String keyAccessToken = 'accessToken';
-   static String valueAccessToken = '';
-   static String keyRefreshToken = 'refreshToken';
-   static String valueRefreshToken = '';
-   static String keyRoleId = 'roleId';
-   static String valueRoleId = '';
+   static String keyToken = 'token';
+   static String valueToken = '';
+   static String keyId = 'id';
+   static String valueId = '';
 
 }
 
@@ -40,10 +38,10 @@ class SharedPreferencesMethods{
 }
 
 //for storeData
-// await SharedPreferencesMethods().setString(SharedPreferencesKeys.keyAccessToken, jsonData['payload']['accessToken'] ?? '');
-// await SharedPreferencesMethods().setInt(SharedPreferencesKeys.keyRoleId, jsonData['payload']['role_id']);
+// await SharedPreferencesMethods().setString(SharedPreferencesKeys.keyToken, jsonData['payload']['token'] ?? '');
+// await SharedPreferencesMethods().setInt(SharedPreferencesKeys.keyId, jsonData['payload']['id']);
 //for getData
-// String? accessToken = await SharedPreferencesMethods().getString(SharedPreferencesKeys.keyAccessToken);
-// int? roleId =  await SharedPreferencesMethods().getInt(SharedPreferencesKeys.keyRoleId);
+// String? accessToken = await SharedPreferencesMethods().getString(SharedPreferencesKeys.keyToken);
+// int? roleId =  await SharedPreferencesMethods().getInt(SharedPreferencesKeys.keyId);
 // for clearData
 // await SharedPreferencesMethods().clearAll();
