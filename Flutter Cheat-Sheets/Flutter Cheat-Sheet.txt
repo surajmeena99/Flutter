@@ -79,4 +79,26 @@
 
            runApp(const MyApp());
          }
-9. Json to Darr (for Create Model Class): ->  https://javiercbk.github.io/json_to_dart/
+
+9. Change Flutter App Version:-->(1.0.0+1 To 1.0.1+2)
+   (1.) go to pubspace.yaml file and Update version:A.B.C+X 
+        For Android: A.B.C represents the versionName such as 1.0.0. X (the number after the +) represents the versionCode such as 1, 2, 3, etc.
+        
+        version: 1.0.1+2
+
+   (2.) Go to android -> app -> build.gradle file and change your app version code and app version name
+       
+	def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+          if (flutterVersionCode == null) {
+            flutterVersionCode = '2'
+          }
+
+        def flutterVersionName = localProperties.getProperty('flutter.versionName')
+          if (flutterVersionName == null) {
+            flutterVersionName = '1.0.1'
+          }
+                
+
+10. Json to Darr (for Create Model Class): ->  https://javiercbk.github.io/json_to_dart/
+
+11. Flutter Imp Docs: https://wrteamdev.github.io/eShop_Single_vendor_App_Doc/flutter-app/index.html
